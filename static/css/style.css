@@ -1,0 +1,4352 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f5f5f5;
+    color: #111;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1250px;
+    margin: auto;
+
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #111;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #111;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-main {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-sub {
+    margin-top: 4px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    color: #777;
+}
+
+
+/* =====================================================
+   NAVIGATION LINKS
+===================================================== */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #333;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #d71920;
+}
+
+.nav-links a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -10px;
+
+    height: 2px;
+
+    background: #d71920;
+}
+
+
+/* =====================================================
+   NAV ACTION BUTTONS
+===================================================== */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.call-btn,
+.whatsapp-btn {
+    padding: 11px 16px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.call-btn {
+    color: #111;
+    background: #f1f1f1;
+}
+
+.call-btn:hover {
+    background: #e5e5e5;
+}
+
+.whatsapp-btn {
+    color: white;
+    background: #168c43;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
+
+.menu-toggle {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.mobile-menu {
+    display: none;
+
+    flex-direction: column;
+
+    background: white;
+
+    border-top: 1px solid #eee;
+
+    padding: 15px 25px 25px;
+}
+
+.mobile-menu a {
+    padding: 14px 0;
+
+    color: #222;
+
+    font-weight: 600;
+
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-actions {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 10px;
+}
+
+.mobile-actions a {
+    border: none;
+
+    padding: 12px 15px;
+
+    margin-top: 8px;
+
+    border-radius: 8px;
+
+    background: #f3f3f3;
+}
+
+
+/* =====================================================
+   TEMPORARY TEST CONTENT
+===================================================== */
+
+.test-content {
+    min-height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.test-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+}
+
+.test-content p {
+    margin-top: 15px;
+
+    font-size: 20px;
+
+    color: #666;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+
+    .test-content h1 {
+        font-size: 38px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .nav-container {
+        min-height: 68px;
+
+        padding: 0 16px;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 20px;
+    }
+
+    .logo-main {
+        font-size: 16px;
+    }
+
+    .logo-sub {
+        font-size: 9px;
+    }
+
+    .test-content {
+        padding: 20px;
+    }
+
+    .test-content h1 {
+        font-size: 30px;
+    }
+
+    .test-content p {
+        font-size: 16px;
+    }
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    background: #101010;
+    color: #ffffff;
+
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 80px 25px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+}
+
+.hero-badge {
+    display: inline-flex;
+
+    padding: 9px 14px;
+
+    border: 1px solid #444;
+
+    border-radius: 50px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #cccccc;
+
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    font-size: clamp(48px, 6vw, 78px);
+
+    line-height: 1.02;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    max-width: 650px;
+}
+
+.hero-content h1 span {
+    display: block;
+
+    color: #d71920;
+}
+
+.hero-description {
+    margin-top: 25px;
+
+    max-width: 550px;
+
+    color: #b8b8b8;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 15px 23px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    background: #d71920;
+
+    color: white;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+
+    background: #b9141a;
+}
+
+.secondary-btn {
+    border: 1px solid #555;
+
+    color: white;
+
+    background: transparent;
+}
+
+.secondary-btn:hover {
+    background: white;
+
+    color: #111;
+}
+
+
+/* =====================================================
+   HERO CONTACT
+===================================================== */
+
+.hero-contact {
+    display: flex;
+
+    gap: 30px;
+
+    margin-top: 45px;
+}
+
+.contact-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.contact-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #222;
+
+    border-radius: 50%;
+
+    font-size: 15px;
+}
+
+.contact-item div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.contact-item strong {
+    font-size: 12px;
+}
+
+.contact-item small {
+    margin-top: 3px;
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   HERO VISUAL
+===================================================== */
+
+.hero-visual {
+    position: relative;
+
+    min-height: 500px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Background circles */
+
+.hero-circle {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid #292929;
+}
+
+.circle-one {
+    width: 480px;
+    height: 480px;
+}
+
+.circle-two {
+    width: 350px;
+    height: 350px;
+}
+
+
+/* =====================================================
+   TYRE
+===================================================== */
+
+.tyre-display {
+    position: relative;
+
+    z-index: 3;
+
+    transform: rotate(-18deg);
+}
+
+.tyre-ring {
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        repeating-conic-gradient(
+            #151515 0deg 8deg,
+            #282828 8deg 16deg
+        );
+
+    border: 30px solid #191919;
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.7),
+        inset 0 0 0 5px #333;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.tyre-inner {
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    background: #bdbdbd;
+
+    border: 18px solid #555;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transform: rotate(18deg);
+
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.tyre-inner span {
+    font-size: 16px;
+
+    font-weight: 800;
+
+    color: #222;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   VEHICLE FLOATING CARDS
+===================================================== */
+
+.vehicle-card {
+    position: absolute;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 11px 15px;
+
+    background: rgba(30, 30, 30, 0.95);
+
+    border: 1px solid #3b3b3b;
+
+    border-radius: 10px;
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+.vehicle-card > span {
+    font-size: 25px;
+}
+
+.vehicle-card div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.vehicle-card strong {
+    font-size: 12px;
+}
+
+.vehicle-card small {
+    color: #888;
+
+    font-size: 9px;
+
+    margin-top: 3px;
+}
+
+.vehicle-car {
+    top: 40px;
+    right: 15px;
+}
+
+.vehicle-bike {
+    top: 190px;
+    left: 0;
+}
+
+.vehicle-truck {
+    bottom: 100px;
+    right: 0;
+}
+
+.vehicle-tractor {
+    bottom: 20px;
+    left: 40px;
+}
+
+
+/* =====================================================
+   VEHICLE STRIP
+===================================================== */
+
+.vehicle-strip {
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.vehicle-strip-container {
+    max-width: 1250px;
+
+    margin: auto;
+
+    min-height: 105px;
+
+    padding: 20px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.strip-title {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.strip-title span {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #999;
+
+    font-weight: 700;
+}
+
+.strip-title strong {
+    margin-top: 5px;
+
+    font-size: 13px;
+}
+
+.strip-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #333;
+}
+
+.strip-item:first-letter {
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   HERO RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .hero-container {
+        grid-template-columns: 1fr;
+
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-contact {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        min-height: 430px;
+    }
+
+    .vehicle-strip-container {
+        overflow-x: auto;
+
+        justify-content: flex-start;
+    }
+
+    .strip-title {
+        min-width: 150px;
+    }
+
+    .strip-item {
+        min-width: 90px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-container {
+        padding: 50px 18px;
+    }
+
+    .hero-badge {
+        font-size: 9px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .hero-contact {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 15px;
+
+        margin-top: 30px;
+    }
+
+    .hero-visual {
+        min-height: 380px;
+    }
+
+    .tyre-ring {
+        width: 220px;
+        height: 220px;
+
+        border-width: 23px;
+    }
+
+    .tyre-inner {
+        width: 95px;
+        height: 95px;
+
+        border-width: 14px;
+    }
+
+    .vehicle-card {
+        padding: 8px 10px;
+    }
+
+    .vehicle-card > span {
+        font-size: 19px;
+    }
+
+    .vehicle-card strong {
+        font-size: 10px;
+    }
+
+    .vehicle-card small {
+        font-size: 8px;
+    }
+
+    .vehicle-car {
+        top: 15px;
+        right: 0;
+    }
+
+    .vehicle-bike {
+        top: 130px;
+        left: 0;
+    }
+
+    .vehicle-truck {
+        bottom: 75px;
+        right: 0;
+    }
+
+    .vehicle-tractor {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .circle-one {
+        width: 320px;
+        height: 320px;
+    }
+
+    .circle-two {
+        width: 240px;
+        height: 240px;
+    }
+
+    .vehicle-strip-container {
+        padding: 15px 18px;
+    }
+}
+
+/* =====================================================
+   VEHICLE CATEGORIES
+===================================================== */
+
+.vehicle-categories {
+    background: #f5f5f5;
+    padding: 100px 0;
+}
+
+.section-container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 0 25px;
+}
+
+
+/* Section heading */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 50px;
+
+    margin-bottom: 45px;
+}
+
+.section-label {
+    display: block;
+
+    color: #d71920;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    font-size: clamp(38px, 5vw, 58px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+
+    color: #111;
+}
+
+.section-heading h2 span {
+    color: #d71920;
+}
+
+.section-heading > p {
+    max-width: 400px;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    text-align: left;
+}
+
+
+/* Vehicle grid */
+
+.vehicle-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+/* Category card */
+
+.category-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    color: #111;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #d71920;
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Category visual */
+
+.category-image {
+    height: 230px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 90px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.category-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.category-image::after {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.car-category {
+    background:
+        linear-gradient(135deg, #222, #111);
+}
+
+.bike-category {
+    background:
+        linear-gradient(135deg, #292929, #111);
+}
+
+.truck-category {
+    background:
+        linear-gradient(135deg, #242424, #101010);
+}
+
+.tractor-category {
+    background:
+        linear-gradient(135deg, #272727, #111);
+}
+
+
+/* Category content */
+
+.category-content {
+    padding: 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    min-height: 190px;
+}
+
+.category-number {
+    color: #999;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.category-content h3 {
+    margin-top: 8px;
+
+    font-size: 19px;
+
+    font-weight: 800;
+}
+
+.category-content p {
+    margin-top: 10px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    text-align: left;
+}
+
+.category-arrow {
+    flex-shrink: 0;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f2f2f2;
+
+    font-size: 18px;
+
+    transition: 0.3s ease;
+}
+
+.category-card:hover .category-arrow {
+    background: #d71920;
+
+    color: white;
+
+    transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   VEHICLE CATEGORY RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .vehicle-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .vehicle-categories {
+        padding: 70px 0;
+    }
+
+    .section-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .section-heading > p {
+        max-width: 550px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .section-container {
+        padding: 0 18px;
+    }
+
+    .vehicle-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .category-image {
+        height: 200px;
+    }
+
+}
+
+/* =====================================================
+   SERVICES SECTION
+===================================================== */
+
+.services-section {
+    background: #101010;
+    color: #ffffff;
+
+    padding: 110px 0;
+}
+
+.services-layout {
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 90px;
+
+    align-items: start;
+}
+
+
+/* =====================================================
+   SERVICES INTRO
+===================================================== */
+
+.services-intro {
+    position: sticky;
+
+    top: 120px;
+}
+
+.services-intro .section-label {
+    color: #d71920;
+}
+
+.services-intro h2 {
+    font-size: clamp(42px, 5vw, 62px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+}
+
+.services-intro h2 span {
+    color: #d71920;
+}
+
+.services-intro p {
+    max-width: 390px;
+
+    margin-top: 25px;
+
+    color: #999;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   SERVICES CTA
+===================================================== */
+
+.services-cta {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+    padding: 13px 18px;
+
+    border: 1px solid #444;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.services-cta span {
+    font-size: 18px;
+
+    transition: 0.3s ease;
+}
+
+.services-cta:hover {
+    background: #d71920;
+
+    border-color: #d71920;
+}
+
+.services-cta:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =====================================================
+   SERVICES LIST
+===================================================== */
+
+.services-list {
+    border-top: 1px solid #333;
+}
+
+.service-item {
+    min-height: 115px;
+
+    display: grid;
+
+    grid-template-columns: 40px 55px 1fr 45px;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border-bottom: 1px solid #333;
+
+    transition: 0.3s ease;
+}
+
+.service-item:hover {
+    padding-left: 12px;
+
+    background: #171717;
+}
+
+
+/* Number */
+
+.service-number {
+    color: #666;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* Icon */
+
+.service-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #333;
+
+    border-radius: 50%;
+
+    background: #181818;
+
+    font-size: 20px;
+}
+
+
+/* Service information */
+
+.service-info h3 {
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.service-info p {
+    margin-top: 6px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    text-align: left;
+}
+
+
+/* Arrow */
+
+.service-arrow {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #1d1d1d;
+
+    color: #aaa;
+
+    font-size: 17px;
+
+    transition: 0.3s ease;
+}
+
+.service-item:hover .service-arrow {
+    background: #d71920;
+
+    color: white;
+
+    transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   SERVICES RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .services-section {
+        padding: 80px 0;
+    }
+
+    .services-layout {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+    .services-intro {
+        position: static;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .services-section {
+        padding: 70px 0;
+    }
+
+    .service-item {
+        grid-template-columns: 30px 45px 1fr 35px;
+
+        gap: 10px;
+
+        min-height: 105px;
+    }
+
+    .service-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 17px;
+    }
+
+    .service-info h3 {
+        font-size: 14px;
+    }
+
+    .service-info p {
+        font-size: 10px;
+    }
+
+    .service-arrow {
+        width: 32px;
+        height: 32px;
+
+        font-size: 14px;
+    }
+
+}
+
+/* =====================================================
+   WHY CHOOSE US
+===================================================== */
+
+.why-section {
+    background: #f5f5f5;
+
+    padding: 110px 0;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.why-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 50px;
+
+    margin-bottom: 55px;
+}
+
+.why-header h2 {
+    font-size: clamp(40px, 5vw, 60px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+}
+
+.why-header h2 span {
+    color: #d71920;
+}
+
+.why-header > p {
+    max-width: 400px;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   WHY GRID
+===================================================== */
+
+.why-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =====================================================
+   WHY CARD
+===================================================== */
+
+.why-card {
+    position: relative;
+
+    min-height: 300px;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e4e4;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    transition: 0.35s ease;
+}
+
+.why-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: -40px;
+    bottom: -40px;
+
+    border-radius: 50%;
+
+    background: #f7f7f7;
+
+    transition: 0.35s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #d71920;
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.09);
+}
+
+.why-card:hover::after {
+    transform: scale(2);
+
+    background: #fff0f0;
+}
+
+
+/* =====================================================
+   WHY ICON
+===================================================== */
+
+.why-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #111;
+
+    border-radius: 12px;
+
+    font-size: 25px;
+
+    margin-bottom: 30px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   WHY NUMBER
+===================================================== */
+
+.why-number {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 10px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   WHY CONTENT
+===================================================== */
+
+.why-card h3 {
+    font-size: 18px;
+
+    font-weight: 800;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.why-card p {
+    margin-top: 12px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    text-align: left;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   WHY BANNER
+===================================================== */
+
+.why-banner {
+    margin-top: 25px;
+
+    min-height: 110px;
+
+    padding: 20px 25px;
+
+    background: #111;
+
+    border-radius: 14px;
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+.why-banner-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #242424;
+
+    font-size: 24px;
+
+    flex-shrink: 0;
+}
+
+.why-banner-text {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+}
+
+.why-banner-text span {
+    font-size: 9px;
+
+    color: #888;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+}
+
+.why-banner-text strong {
+    margin-top: 6px;
+
+    font-size: 17px;
+}
+
+.why-banner-button {
+    padding: 13px 18px;
+
+    background: #d71920;
+
+    color: #ffffff;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.why-banner-button:hover {
+    background: #b9141a;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   WHY RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .why-section {
+        padding: 80px 0;
+    }
+
+    .why-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .why-section {
+        padding: 70px 0;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-card {
+        min-height: 260px;
+    }
+
+    .why-banner {
+        flex-wrap: wrap;
+
+        padding: 20px;
+    }
+
+    .why-banner-text {
+        min-width: 180px;
+    }
+
+    .why-banner-button {
+        width: 100%;
+
+        text-align: center;
+
+        margin-top: 5px;
+    }
+
+}
+
+/* =====================================================
+   TYRE BRANDS SECTION
+===================================================== */
+
+.brands-section {
+    background: #ffffff;
+
+    padding: 110px 0;
+}
+
+
+/* =====================================================
+   BRANDS HEADER
+===================================================== */
+
+.brands-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 60px;
+
+    margin-bottom: 50px;
+}
+
+.brands-title {
+    flex: 1;
+}
+
+.brands-header h2 {
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: clamp(42px, 5vw, 60px);
+
+    line-height: 1.04;
+
+    letter-spacing: -2.5px;
+
+    font-weight: 800;
+
+    color: #111111;
+}
+
+.brands-header h2 span {
+    color: #d71920;
+}
+
+.brands-header > p {
+    max-width: 390px;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   BRAND SHOWCASE
+===================================================== */
+
+.brand-showcase {
+
+    display: grid;
+
+    /*
+       IMPORTANT:
+       5 brands = 5 equal columns
+    */
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 14px;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   BRAND CARD
+===================================================== */
+
+.brand-card {
+
+    position: relative;
+
+    min-width: 0;
+
+    height: 285px;
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Brand card hover */
+
+.brand-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: #d71920;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =====================================================
+   BRAND NUMBER
+===================================================== */
+
+.brand-index {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 18px;
+
+    color: #999999;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   BRAND CIRCLE
+===================================================== */
+
+.brand-circle {
+
+    position: relative;
+
+    width: 150px;
+
+    height: 150px;
+
+    margin: 25px auto 0;
+
+    border-radius: 50%;
+
+    border: 1px solid #eeeeee;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Outer decorative ring */
+
+.brand-circle::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 178px;
+    height: 178px;
+
+    border-radius: 50%;
+
+    border: 1px solid #f0f0f0;
+
+    transition: 0.4s ease;
+}
+
+
+/* Inner decorative ring */
+
+.brand-circle::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    border: 1px solid #f3f3f3;
+}
+
+
+/* Hover circles */
+
+.brand-card:hover .brand-circle {
+
+    transform: scale(1.04);
+
+    border-color: #e3e3e3;
+}
+
+.brand-card:hover .brand-circle::before {
+
+    width: 190px;
+    height: 190px;
+
+    border-color: #e8e8e8;
+}
+
+
+/* =====================================================
+   BRAND NAME
+===================================================== */
+
+.brand-name {
+
+    position: relative;
+
+    z-index: 3;
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    color: #111111;
+
+    text-align: center;
+}
+
+
+/* Slightly smaller names */
+
+.brand-card:nth-child(3) .brand-name {
+
+    font-size: 20px;
+}
+
+.brand-card:nth-child(4) .brand-name {
+
+    font-size: 20px;
+}
+
+.brand-card:nth-child(5) .brand-name {
+
+    font-size: 17px;
+
+    letter-spacing: -0.5px;
+}
+
+
+.brand-circle span {
+
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: 5px;
+
+    color: #999999;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   BRAND BOTTOM
+===================================================== */
+
+.brand-bottom {
+
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.brand-bottom h3 {
+
+    margin: 0;
+
+    color: #111111;
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+.brand-bottom small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #888888;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   BRAND ARROW
+===================================================== */
+
+.brand-arrow {
+
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f8eeee;
+
+    color: #111111;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.brand-card:hover .brand-arrow {
+
+    background: #d71920;
+
+    color: #ffffff;
+
+    transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   BRAND CTA
+===================================================== */
+
+.brand-cta {
+
+    margin-top: 25px;
+
+    min-height: 125px;
+
+    padding: 28px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    background: #111111;
+
+    border-radius: 14px;
+
+    color: #ffffff;
+}
+
+.brand-cta-content {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.brand-cta-content span {
+
+    color: #888888;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.brand-cta-content h3 {
+
+    margin-top: 7px;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+.brand-cta-button {
+
+    flex-shrink: 0;
+
+    padding: 15px 21px;
+
+    background: #d71920;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.brand-cta-button:hover {
+
+    background: #b9141a;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .brand-showcase {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+    .brand-card {
+
+        height: 270px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .brands-section {
+
+        padding: 75px 0;
+
+    }
+
+    .brands-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+        margin-bottom: 35px;
+
+    }
+
+    .brands-header > p {
+
+        max-width: 550px;
+
+    }
+
+    .brand-showcase {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+    .brand-card {
+
+        height: 250px;
+
+        padding: 17px;
+
+    }
+
+    .brand-circle {
+
+        width: 125px;
+
+        height: 125px;
+
+    }
+
+    .brand-circle::before {
+
+        width: 148px;
+        height: 148px;
+
+    }
+
+    .brand-circle::after {
+
+        width: 90px;
+        height: 90px;
+
+    }
+
+    .brand-name {
+
+        font-size: 20px;
+
+    }
+
+    .brand-card:nth-child(3) .brand-name,
+    .brand-card:nth-child(4) .brand-name {
+
+        font-size: 17px;
+
+    }
+
+    .brand-card:nth-child(5) .brand-name {
+
+        font-size: 15px;
+
+    }
+
+    .brand-bottom h3 {
+
+        font-size: 14px;
+
+    }
+
+    .brand-arrow {
+
+        width: 34px;
+        height: 34px;
+
+        font-size: 15px;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+
+    .brand-showcase {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .brand-card {
+
+        height: 220px;
+
+        padding: 14px;
+
+    }
+
+    .brand-circle {
+
+        width: 105px;
+        height: 105px;
+
+    }
+
+    .brand-circle::before {
+
+        width: 125px;
+        height: 125px;
+
+    }
+
+    .brand-circle::after {
+
+        width: 75px;
+        height: 75px;
+
+    }
+
+    .brand-name {
+
+        font-size: 17px;
+
+    }
+
+    .brand-card:nth-child(3) .brand-name,
+    .brand-card:nth-child(4) .brand-name {
+
+        font-size: 15px;
+
+    }
+
+    .brand-card:nth-child(5) .brand-name {
+
+        font-size: 13px;
+
+    }
+
+}
+
+/* =====================================================
+   ABOUT SECTION
+===================================================== */
+
+.about-section {
+
+    background: #f5f5f5;
+
+    padding: 110px 0;
+}
+
+
+/* =====================================================
+   ABOUT LAYOUT
+===================================================== */
+
+.about-layout {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   ABOUT CONTENT
+===================================================== */
+
+.about-content h2 {
+
+    margin: 0;
+
+    font-size: clamp(42px, 5vw, 62px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+
+    color: #111;
+}
+
+.about-content h2 span {
+
+    display: block;
+
+    color: #d71920;
+}
+
+
+.about-lead {
+
+    margin-top: 28px;
+
+    max-width: 520px;
+
+    color: #333;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    text-align: left;
+}
+
+
+.about-content > p:not(.about-lead) {
+
+    margin-top: 15px;
+
+    max-width: 520px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   ABOUT BUTTON
+===================================================== */
+
+.about-button {
+
+    display: inline-flex;
+
+    margin-top: 30px;
+
+    padding: 14px 20px;
+
+    background: #111;
+
+    color: #fff;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.about-button:hover {
+
+    background: #d71920;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   ABOUT VISUAL
+===================================================== */
+
+.about-visual {
+
+    position: relative;
+
+    min-height: 500px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #111;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   DECORATIVE CIRCLES
+===================================================== */
+
+.about-circle {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid #303030;
+}
+
+.about-circle-one {
+
+    width: 390px;
+
+    height: 390px;
+}
+
+.about-circle-two {
+
+    width: 270px;
+
+    height: 270px;
+}
+
+
+/* =====================================================
+   ABOUT TYRE
+===================================================== */
+
+.about-tyre {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 245px;
+
+    height: 245px;
+
+    border-radius: 50%;
+
+    border: 30px solid #202020;
+
+    background:
+        repeating-conic-gradient(
+            #151515 0deg 8deg,
+            #292929 8deg 16deg
+        );
+
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 4px #383838;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.about-tyre-inner {
+
+    width: 95px;
+
+    height: 95px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #c7c7c7;
+
+    border: 14px solid #555;
+
+    color: #222;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   LOCATION CARD
+===================================================== */
+
+.about-location-card {
+
+    position: absolute;
+
+    left: 25px;
+
+    bottom: 25px;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 15px;
+
+    background: rgba(30, 30, 30, 0.95);
+
+    border: 1px solid #3b3b3b;
+
+    border-radius: 10px;
+
+    color: #fff;
+}
+
+
+.about-location-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #242424;
+
+    border-radius: 50%;
+}
+
+
+.about-location-card div {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.about-location-card span:not(.about-location-icon) {
+
+    font-size: 8px;
+
+    color: #888;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+.about-location-card strong {
+
+    margin-top: 4px;
+
+    font-size: 12px;
+}
+
+
+.about-location-card small {
+
+    margin-top: 3px;
+
+    color: #777;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   VEHICLE CARD
+===================================================== */
+
+.about-vehicle-card {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 25px;
+
+    z-index: 5;
+
+    padding: 13px 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    background: rgba(30, 30, 30, 0.95);
+
+    border: 1px solid #3b3b3b;
+
+    border-radius: 10px;
+
+    color: #fff;
+}
+
+
+.about-vehicle-card span {
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+}
+
+
+.about-vehicle-card strong {
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   ABOUT RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .about-layout {
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+    .about-visual {
+
+        min-height: 450px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .about-section {
+
+        padding: 75px 0;
+    }
+
+    .about-layout {
+
+        gap: 40px;
+    }
+
+    .about-visual {
+
+        min-height: 380px;
+
+        border-radius: 14px;
+    }
+
+    .about-tyre {
+
+        width: 190px;
+
+        height: 190px;
+
+        border-width: 23px;
+    }
+
+    .about-tyre-inner {
+
+        width: 75px;
+
+        height: 75px;
+
+        border-width: 11px;
+
+        font-size: 11px;
+    }
+
+    .about-circle-one {
+
+        width: 300px;
+
+        height: 300px;
+    }
+
+    .about-circle-two {
+
+        width: 210px;
+
+        height: 210px;
+    }
+
+    .about-location-card {
+
+        left: 15px;
+
+        bottom: 15px;
+    }
+
+    .about-vehicle-card {
+
+        top: 15px;
+
+        right: 15px;
+    }
+
+}
+
+/* =====================================================
+   GALLERY SECTION
+===================================================== */
+
+.gallery-section {
+
+    background: #111111;
+
+    padding: 110px 0;
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   GALLERY HEADER
+===================================================== */
+
+.gallery-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 60px;
+
+    margin-bottom: 50px;
+}
+
+.gallery-header h2 {
+
+    margin: 0;
+
+    font-size: clamp(42px, 5vw, 60px);
+
+    line-height: 1.04;
+
+    letter-spacing: -2.5px;
+
+    font-weight: 800;
+}
+
+.gallery-header h2 span {
+
+    color: #d71920;
+}
+
+.gallery-header > p {
+
+    max-width: 390px;
+
+    margin: 0;
+
+    color: #999999;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   GALLERY GRID
+===================================================== */
+
+.gallery-grid {
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr;
+
+    grid-template-rows: 270px 270px;
+
+    gap: 14px;
+}
+
+
+/* =====================================================
+   GALLERY ITEM
+===================================================== */
+
+.gallery-item {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #202020;
+
+    border: 1px solid #2d2d2d;
+
+    cursor: pointer;
+}
+
+
+/* Large item */
+
+.gallery-large {
+
+    grid-row: span 2;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.gallery-item img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+
+/* Dark image */
+
+.gallery-item::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.05) 65%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Hover image */
+
+.gallery-item:hover img {
+
+    transform: scale(1.07);
+
+    filter: brightness(0.8);
+}
+
+
+/* =====================================================
+   GALLERY OVERLAY
+===================================================== */
+
+.gallery-overlay {
+
+    position: absolute;
+
+    left: 20px;
+
+    right: 20px;
+
+    bottom: 18px;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.gallery-overlay span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #bbbbbb;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.gallery-overlay h3 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   GALLERY ARROW
+===================================================== */
+
+.gallery-arrow {
+
+    width: 38px;
+
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    color: #111111;
+
+    font-size: 16px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-arrow {
+
+    background: #d71920;
+
+    color: #ffffff;
+
+    transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   GALLERY CTA
+===================================================== */
+
+.gallery-cta {
+
+    margin-top: 25px;
+
+    padding: 28px 30px;
+
+    min-height: 115px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    color: #111111;
+}
+
+.gallery-cta span {
+
+    color: #888888;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.gallery-cta h3 {
+
+    margin-top: 7px;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+.gallery-cta a {
+
+    flex-shrink: 0;
+
+    padding: 14px 20px;
+
+    background: #d71920;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.gallery-cta a:hover {
+
+    background: #b9141a;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   GALLERY RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .gallery-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .gallery-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-rows:
+            300px
+            240px
+            240px;
+    }
+
+    .gallery-large {
+
+        grid-column: span 2;
+
+        grid-row: span 1;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .gallery-section {
+
+        padding: 75px 0;
+    }
+
+    .gallery-grid {
+
+        grid-template-columns: 1fr;
+
+        grid-template-rows:
+            300px
+            240px
+            240px
+            240px
+            240px;
+    }
+
+    .gallery-large {
+
+        grid-column: span 1;
+    }
+
+    .gallery-cta {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 22px;
+    }
+
+    .gallery-cta a {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+}
+
+/* =====================================================
+   CONTACT SECTION
+===================================================== */
+
+.contact-section {
+
+    background: #f5f5f5;
+
+    padding: 110px 0;
+}
+
+
+/* =====================================================
+   CONTACT HEADER
+===================================================== */
+
+.contact-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 60px;
+
+    margin-bottom: 55px;
+}
+
+.contact-header h2 {
+
+    margin: 0;
+
+    font-size: clamp(42px, 5vw, 60px);
+
+    line-height: 1.04;
+
+    letter-spacing: -2.5px;
+
+    font-weight: 800;
+}
+
+.contact-header h2 span {
+
+    display: block;
+
+    color: #d71920;
+}
+
+.contact-header > p {
+
+    max-width: 400px;
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   CONTACT LAYOUT
+===================================================== */
+
+.contact-layout {
+
+    display: grid;
+
+    grid-template-columns: 0.85fr 1.15fr;
+
+    gap: 18px;
+}
+
+
+/* =====================================================
+   CONTACT INFORMATION
+===================================================== */
+
+.contact-info {
+
+    padding: 35px;
+
+    background: #111;
+
+    border-radius: 14px;
+
+    color: #fff;
+}
+
+.contact-info-heading span {
+
+    color: #888;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.contact-info-heading h3 {
+
+    margin-top: 8px;
+
+    font-size: 28px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   CONTACT DETAILS
+===================================================== */
+
+.contact-detail {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #292929;
+}
+
+.contact-detail-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #202020;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+}
+
+.contact-detail div:last-child {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.contact-detail span {
+
+    color: #777;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.contact-detail strong {
+
+    margin-top: 4px;
+
+    font-size: 14px;
+}
+
+.contact-detail p {
+
+    margin-top: 4px;
+
+    color: #777;
+
+    font-size: 10px;
+
+    text-align: left;
+}
+
+
+/* =====================================================
+   CALL BUTTON
+===================================================== */
+
+.contact-call-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background: #d71920;
+
+    border-radius: 8px;
+
+    color: #fff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.contact-call-button:hover {
+
+    background: #b9141a;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+
+.contact-form-wrapper {
+
+    padding: 35px;
+
+    background: #fff;
+
+    border: 1px solid #dedede;
+
+    border-radius: 14px;
+}
+
+.form-heading span {
+
+    color: #d71920;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.form-heading h3 {
+
+    margin-top: 7px;
+
+    color: #111;
+
+    font-size: 26px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+#serviceEnquiryForm {
+
+    margin-top: 25px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.form-group:nth-child(5) {
+
+    grid-column: span 2;
+}
+
+.form-group label {
+
+    color: #333;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 7px;
+
+    background: #fafafa;
+
+    color: #111;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.form-group textarea {
+
+    resize: vertical;
+
+    min-height: 105px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #d71920;
+
+    background: #fff;
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.contact-submit-button {
+
+    grid-column: span 2;
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #d71920;
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.contact-submit-button:hover {
+
+    background: #b9141a;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   FORM NOTE
+===================================================== */
+
+.form-note {
+
+    grid-column: span 2;
+
+    margin: -5px 0 0;
+
+    color: #999;
+
+    font-size: 9px;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   CONTACT RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .contact-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .contact-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .contact-section {
+
+        padding: 75px 0;
+
+    }
+
+    .contact-info,
+    .contact-form-wrapper {
+
+        padding: 24px;
+
+    }
+
+    #serviceEnquiryForm {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .form-group:nth-child(5),
+    .contact-submit-button,
+    .form-note {
+
+        grid-column: span 1;
+
+    }
+
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.site-footer {
+
+    background: #0d0d0d;
+
+    color: #ffffff;
+
+    padding: 75px 0 0;
+
+}
+
+
+/* =====================================================
+   FOOTER TOP
+===================================================== */
+
+.footer-top {
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+
+    gap: 55px;
+
+    padding-bottom: 60px;
+
+}
+
+
+/* =====================================================
+   FOOTER BRAND
+===================================================== */
+
+.footer-brand {
+
+    max-width: 330px;
+
+}
+
+
+.footer-logo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #ffffff;
+
+}
+
+
+.footer-logo-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #1d1d1d;
+
+    border: 1px solid #333;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+}
+
+
+.footer-logo div:last-child {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.footer-logo strong {
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+}
+
+
+.footer-logo span {
+
+    margin-top: 5px;
+
+    color: #777;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.footer-brand > p {
+
+    margin-top: 22px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    text-align: left;
+
+}
+
+
+/* =====================================================
+   FOOTER COLUMNS
+===================================================== */
+
+.footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+}
+
+
+.footer-column h4 {
+
+    margin: 0 0 20px;
+
+    color: #777;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.footer-column a,
+.footer-column span {
+
+    margin-bottom: 12px;
+
+    color: #b5b5b5;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    transition: color 0.25s ease;
+
+}
+
+
+.footer-column a:hover {
+
+    color: #ffffff;
+
+}
+
+
+/* =====================================================
+   FOOTER CONTACT
+===================================================== */
+
+.footer-contact a:first-of-type {
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+.footer-contact span {
+
+    margin-bottom: 5px;
+
+    color: #777;
+
+}
+
+
+.footer-whatsapp {
+
+    margin-top: 12px;
+
+    padding: 11px 14px;
+
+    background: #168c45;
+
+    border-radius: 7px;
+
+    color: #ffffff !important;
+
+    font-size: 10px !important;
+
+    font-weight: 700;
+
+}
+
+
+.footer-whatsapp:hover {
+
+    background: #117638;
+
+}
+
+
+/* =====================================================
+   FOOTER BOTTOM
+===================================================== */
+
+.footer-bottom {
+
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top: 1px solid #242424;
+
+}
+
+
+.footer-bottom p {
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 9px;
+
+}
+
+
+.footer-bottom-links a {
+
+    color: #888;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    transition: color 0.25s ease;
+
+}
+
+
+.footer-bottom-links a:hover {
+
+    color: #ffffff;
+
+}
+
+
+/* =====================================================
+   FLOATING WHATSAPP
+===================================================== */
+
+.floating-whatsapp {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 999;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 11px 15px 11px 11px;
+
+    background: #168c45;
+
+    border: 2px solid #ffffff;
+
+    border-radius: 50px;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.floating-whatsapp:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.28);
+
+}
+
+
+.whatsapp-icon {
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border-radius: 50%;
+
+    font-size: 16px;
+
+}
+
+
+.whatsapp-text {
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   FOOTER RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .footer-top {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 45px;
+
+    }
+
+    .footer-brand {
+
+        max-width: 100%;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .site-footer {
+
+        padding-top: 60px;
+
+    }
+
+    .footer-top {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 35px 25px;
+
+    }
+
+    .footer-brand {
+
+        grid-column: span 2;
+
+    }
+
+    .footer-bottom {
+
+        min-height: 90px;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+        gap: 10px;
+
+    }
+
+    .floating-whatsapp {
+
+        right: 15px;
+
+        bottom: 15px;
+
+        padding: 10px;
+
+    }
+
+    .whatsapp-text {
+
+        display: none;
+
+    }
+
+    .whatsapp-icon {
+
+        width: 38px;
+
+        height: 38px;
+
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .footer-top {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-brand {
+
+        grid-column: span 1;
+
+    }
+
+}

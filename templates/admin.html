@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | Gupta Tyre House</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            margin: 0;
+
+            background: #f4f4f4;
+
+            color: #111;
+
+            font-family: Arial, sans-serif;
+
+        }
+
+        .admin-header {
+
+            background: #111;
+
+            color: white;
+
+            padding: 22px 5%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+        .admin-header h1 {
+
+            margin: 0;
+
+            font-size: 22px;
+
+        }
+
+        .admin-header span {
+
+            color: #aaa;
+
+            font-size: 12px;
+
+        }
+
+        .admin-container {
+
+            width: min(1400px, 90%);
+
+            margin: 40px auto;
+
+        }
+
+        .dashboard-heading {
+
+            margin-bottom: 25px;
+
+        }
+
+        .dashboard-heading h2 {
+
+            margin: 0 0 6px;
+
+            font-size: 30px;
+
+        }
+
+        .dashboard-heading p {
+
+            margin: 0;
+
+            color: #777;
+
+        }
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 30px;
+
+        }
+
+        .stat-card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            border: 1px solid #ddd;
+
+        }
+
+        .stat-card span {
+
+            display: block;
+
+            color: #777;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+        .stat-card strong {
+
+            display: block;
+
+            margin-top: 10px;
+
+            font-size: 32px;
+
+        }
+
+        .stat-card.new strong {
+
+            color: #d71920;
+
+        }
+
+        .enquiries-card {
+
+            background: white;
+
+            border-radius: 12px;
+
+            border: 1px solid #ddd;
+
+            overflow: hidden;
+
+        }
+
+        .table-header {
+
+            padding: 22px 25px;
+
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        .table-header h3 {
+
+            margin: 0;
+
+            font-size: 18px;
+
+        }
+
+        .table-wrapper {
+
+            width: 100%;
+
+            overflow-x: auto;
+
+        }
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 900px;
+
+        }
+
+        th {
+
+            padding: 14px 18px;
+
+            background: #f7f7f7;
+
+            color: #555;
+
+            font-size: 10px;
+
+            text-align: left;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+        td {
+
+            padding: 16px 18px;
+
+            border-top: 1px solid #eee;
+
+            font-size: 12px;
+
+            vertical-align: top;
+
+        }
+
+        td strong {
+
+            display: block;
+
+            margin-bottom: 4px;
+
+        }
+
+        td small {
+
+            color: #888;
+
+        }
+
+        .status {
+
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            background: #fff3f3;
+
+            color: #d71920;
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+        }
+
+        .empty {
+
+            padding: 50px;
+
+            text-align: center;
+
+            color: #777;
+
+        }
+
+        .back-button {
+
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 12px 18px;
+
+            background: #111;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+        }
+
+        @media (max-width: 700px) {
+
+            .stats {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .admin-container {
+
+                width: 94%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="admin-header">
+
+    <div>
+
+        <h1>
+            GUPTA TYRE HOUSE
+        </h1>
+
+        <span>
+            Admin Dashboard
+        </span>
+
+    </div>
+
+
+    <a
+        href="/admin/logout"
+        style="
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 10px 15px;
+            background: #d71920;
+            border-radius: 6px;
+        "
+    >
+        Logout
+    </a>
+
+</header>
+
+<main class="admin-container">
+
+
+    <div class="dashboard-heading">
+
+        <h2>
+            Enquiries
+        </h2>
+
+        <p>
+            Manage customer service enquiries.
+        </p>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="stats">
+
+
+        <div class="stat-card">
+
+            <span>
+                Total Enquiries
+            </span>
+
+            <strong>
+                {{ total }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card new">
+
+            <span>
+                New Enquiries
+            </span>
+
+            <strong>
+                {{ new_count }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Completed
+            </span>
+
+            <strong>
+                {{ completed }}
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ENQUIRIES -->
+
+    <div class="enquiries-card">
+
+        <div class="table-header">
+
+            <h3>
+                Customer Enquiries
+            </h3>
+
+        </div>
+
+
+        {% if enquiries %}
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Customer
+                        </th>
+
+                        <th>
+                            Phone
+                        </th>
+
+                        <th>
+                            Vehicle
+                        </th>
+
+                        <th>
+                            Service
+                        </th>
+
+                        <th>
+                            Message
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for enquiry in enquiries %}
+
+                    <tr>
+
+                        <td>
+
+                            <strong>
+                                {{ enquiry.name }}
+                            </strong>
+
+                        </td>
+
+
+                        <td>
+
+                            <a href="tel:{{ enquiry.phone }}">
+                                {{ enquiry.phone }}
+                            </a>
+
+                        </td>
+
+
+                        <td>
+                            {{ enquiry.vehicle }}
+                        </td>
+
+
+                        <td>
+                            {{ enquiry.service }}
+                        </td>
+
+
+                        <td>
+
+                            {{ enquiry.message or "—" }}
+
+                        </td>
+
+
+                        <td>
+
+                            <span class="status">
+                                {{ enquiry.status }}
+                            </span>
+
+                        </td>
+
+
+                        <td>
+                            {{ enquiry.created_at }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <div class="empty">
+
+            No enquiries found.
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <a
+        href="/"
+        class="back-button"
+    >
+        ← Back to Website
+    </a>
+
+
+</main>
+
+</body>
+
+</html>
